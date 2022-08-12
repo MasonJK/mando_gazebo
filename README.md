@@ -11,8 +11,8 @@ $ export SVGA_VGPU10=0
 * Error in REST request
 -> https://wth-mongdol.tistory.com/158
 
-# ROS Library Info.
-## 0. Basic Library  
+# A. ROS Library Info.
+## A.0. Basic Library  
 ```
 $ sudo apt-get install ros-melodic-joy ros-melodic-teleop-twist-joy \
   ros-melodic-teleop-twist-keyboard ros-melodic-laser-proc \
@@ -25,14 +25,14 @@ $ sudo apt-get install ros-melodic-joy ros-melodic-teleop-twist-joy \
   ros-melodic-gmapping ros-melodic-navigation ros-melodic-interactive-markers
 ```
 
-## 1. ROS SLAM stack
+## A.1. ROS SLAM stack
 
-### 1-1. Gmapping  
+### A.1-1. Gmapping  
 ```
 $ sudo apt-get install ros-melodic-gmapping  
 ```
 
-### 1-2. Cartographer  
+### A.1-2. Cartographer  
 https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html  
 ```
 $ sudo apt-get update
@@ -64,17 +64,45 @@ $ src/cartographer/scripts/install_abseil.sh
 $ catkin_make_isolated --install --use-ninja
 ```
 
-## 2. ROS navigation stack  
+## A.2. ROS navigation stack  
 ```
 $ sudo apt-get install ros-melodic-navigation
 ```
 
-## 3. scout_mini_gazebo package  
+## A.3. scout_mini_gazebo package  
 ```
 $ git clone ...
 ```
 
-## 4. teleop keyboard  
+## A.4. teleop keyboard  
 ```
 $ sudo apt install -y ros-$ROS_DISTRO-teleop-twist-keyboard
 ```
+
+
+
+
+# B. 실행 방법
+## B.0. Gazebo 시뮬레이터  
+### 가제보 실행
+```
+$ roslaunch mando_gazebo empty_world.launch
+```
+
+### 키보드 조종
+```
+$ rosrun teleop_twist_keyboard teleop_twist_keyboard.py 
+```
+
+## B.1. SLAM, Gmapping
+```
+$ roslaunch mando_slam mando_slam_gmapping.launch 
+```
+
+
+## B.2. Navigation
+```
+$ roslaunch mando_navigation mando_navigation.launch 
+```
+
+
