@@ -69,9 +69,10 @@ $ catkin_make_isolated --install --use-ninja
 $ sudo apt-get install ros-melodic-navigation
 ```
 
-## A.3. scout_mini_gazebo package  
+## A.3. scout_mini_gazebo package 
 ```
-$ git clone ...
+$ git clone https://github.com/MANDO-ROBOT/mando_gazebo.git
+$ git clone https://github.com/MANDO-ROBOT/mando_mobile_robot.git
 ```
 
 ## A.4. teleop keyboard  
