@@ -100,6 +100,10 @@ $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 $ roslaunch mando_slam mando_slam_gmapping.launch 
 ```
 
+맵 저장하고 싶을 때,
+```
+$ rosrun map_server map_saver -f ~/map
+```
 
 ## B.2. Navigation
 ```
