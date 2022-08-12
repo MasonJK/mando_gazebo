@@ -71,6 +71,11 @@ $ git clone -b kinetic-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulatio
 $ cd ~/catkin_ws && catkin_make
 ```
 
+```
+sudo apt-get install ros-kinetic-turtlebot3-msgs
+```
+
+
 ## A.2. ROS navigation stack  
 ```
 $ sudo apt-get install ros-melodic-navigation
