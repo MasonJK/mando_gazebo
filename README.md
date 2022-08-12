@@ -64,6 +64,13 @@ $ src/cartographer/scripts/install_abseil.sh
 $ catkin_make_isolated --install --use-ninja
 ```
 
+### A.1-3. Turtlebot3 simulation package for map   
+```
+$ cd ~/catkin_ws/src/
+$ git clone -b kinetic-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+$ cd ~/catkin_ws && catkin_make
+```
+
 ## A.2. ROS navigation stack  
 ```
 $ sudo apt-get install ros-melodic-navigation
