@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+	<!-- Robot pose -->
+	<arg name="x" default="0"/>
+	<arg name="y" default="0"/>
+	<arg name="z" default="0"/>
+	<arg name="roll" default="0"/>
+	<arg name="pitch" default="0"/>
+	<arg name="yaw" default="0"/>
+	<arg name="robot_name" default="atom"/>
+
+	<arg name="robot_namespace" default="/"/>
+
+	<!-- Launch other relevant files-->
+	<include file="$(find mando_gazebo)/launch/robot_description.launch"/>
+
+	<!-- World File -->
+	<arg name="world_file" default="$(find mando_gazebo)/worlds/empty.world"/>
+
+	<!-- Launch Gazebo World -->
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="use_sim_time" value="true"/>
+		<arg name="verbose" value="false"/>
+		<arg name="debug" value="false"/>
+		<arg name="gui" value="true" />
+		<arg name="world_name" value="$(arg world_file)"/>
+	</include>
+
+
+	<!-- Spawn My Robot -->
+	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+		args="-urdf -param robot_description -model atom
+			  -x $(arg x) -y $(arg y) -z $(arg z)
+			  -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
+
+	<!--launch rviz-->
+	<node name="rviz" pkg="rviz" type="rviz" respawn="false"
+		  args="-d $(find mando_gazebo)/rviz/default.rviz"/>
+
+    <!-- load the controllers / package -->
+	<!-- <node name="scout_skid_steer_controller" pkg="scout_gazebo_sim" type="scout_skid_steer_controller">
+        <param name="robot_namespace" type="string" value="$(arg robot_namespace)" />
+    </node> -->
+
+</launch>

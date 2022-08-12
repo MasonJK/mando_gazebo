@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="gazebo_animation"  type="moving_obstacle" name="moving_obstacle" output="screen" />
+  </launch>
